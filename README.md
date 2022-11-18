@@ -4,10 +4,10 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per GNU Linux.
 
 ## Requeriments
 
-- GNU Linux: Ubuntu 22.04.1 LTS
+- GNU Linux (Arch, Ubuntu)
 - python >= 3.8
 - MPD: Music Player Daemon 0.23.5 (0.23.5)
-- MPC: A minimalist command line interface to MPD
+- MPC: A minimalist command line interface to MPD / mpc version: 0.34
 
 ## MPD
 https://www.musicpd.org/
