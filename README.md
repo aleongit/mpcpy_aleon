@@ -16,9 +16,9 @@ https://mpd.readthedocs.io/en/stable/user.html
 - apt install mpd
 - configure /etc/mpd.conf
 ```
-music_directory     "/home/aleon/Música"
-playlist_directory	"/home/aleon/playlists"
-auto_update         "yes"
+music_directory "/home/aleon/Música"
+playlist_directory "/home/aleon/playlists"
+auto_update "yes"
 ...
 ```
 - load mp3 music in music_directory
@@ -44,11 +44,11 @@ https://www.musicpd.org/doc/mpc/html/
 
 ## files
 
-- albums: albums objects pickel
-- estat_reproductor: MPC current state
-- playlist.txt: current playlist
-- playlists.txt: list of playlist
-- info.txt: album information in album folder
+- **albums**: albums objects pickel
+- **estat_reproductor**: MPC current state
+- **playlist.txt**: current playlist
+- **playlists.txt**: list of playlist
+- **info.txt**: album information in album folder
 ```
 gender
 year
