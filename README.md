@@ -16,8 +16,9 @@ https://mpd.readthedocs.io/en/stable/user.html
 - apt install mpd
 - configure /etc/mpd.conf
 ```
-music_directory		"/home/aleon/Música"
-playlist_directory		"/home/aleon/playlists"
+music_directory     "/home/aleon/Música"
+playlist_directory	"/home/aleon/playlists"
+auto_update         "yes"
 ...
 ```
 - load mp3 music in music_directory
@@ -36,6 +37,24 @@ https://www.musicpd.org/doc/mpc/html/
 - mpd add /
 - mpc play
 
+## mpcpy_aleon
+
+- DIR_MUSIC = '/home/aleon/Música' (= /etc/mpd.conf)
+- DIR_PLAYLIST = '/home/aleon/playlists' (/etc/mpd.conf)
+
+## files
+
+- albums: albums objects pickel
+- estat_reproductor: MPC current state
+- playlist.txt: current playlist
+- playlists.txt: list of playlist
+- info.txt: album information in album folder
+```
+gender
+year
+author
+```
 
 ## Run
 
+- python3 mpcpy_aleon.py
