@@ -34,6 +34,7 @@ audio_output {
 ...
 ```
 - load mp3 music in music_directory
+- add info.txt in every album directory with gender, year and author 
 - sudo systemctl enable mpd
 - sudo systemctl start mpd
 - sudo systemctl status mpd
