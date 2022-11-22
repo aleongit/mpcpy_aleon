@@ -13,8 +13,8 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per GNU Linux.
 https://www.musicpd.org/
 https://mpd.readthedocs.io/en/stable/user.html
 
-- sudo pacman -S mpd (arch)
-- apt install mpd (ubuntu)
+- sudo pacman -S mpd (**arch**)
+- apt install mpd (**ubuntu**)
 - configure /etc/mpd.conf
 ```
 music_directory "/home/aleon/Música"
@@ -45,8 +45,8 @@ audio_output {
 https://www.musicpd.org/clients/mpc/
 https://www.musicpd.org/doc/mpc/html/
 
-- sudo pacman -S mpc (arch)
-- apt install mpc (ubuntu)
+- sudo pacman -S mpc (**arch**)
+- apt install mpc (**ubuntu**)
 - mpc update
 - mpc ls
 - mpd add /
@@ -54,7 +54,7 @@ https://www.musicpd.org/doc/mpc/html/
 
 ## mpcpy_aleon
 
-- DIR_MUSIC = '/home/aleon/Música' (= /etc/mpd.conf)
+- DIR_MUSIC = '/home/aleon/Music' (= /etc/mpd.conf)
 - DIR_PLAYLIST = '/home/aleon/playlists' (/etc/mpd.conf)
 
 ## files
