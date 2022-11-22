@@ -59,7 +59,7 @@ https://www.musicpd.org/doc/mpc/html/
 
 ## files
 
-- **albums**: albums objects pickel
+- **albums**: album objects pickel
 - **estat_reproductor**: MPC current state
 - **playlist.txt**: current playlist
 - **playlists.txt**: list of playlist
