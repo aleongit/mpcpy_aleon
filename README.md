@@ -1,6 +1,7 @@
 # MPCPy
 
 Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per GNU Linux.
+Ús de classes, gestió de llistes de reproducció i fitxers.
 
 ## Requeriments
 
@@ -16,6 +17,8 @@ https://mpd.readthedocs.io/en/stable/user.html
 - sudo pacman -S mpd (**arch**)
 - apt install mpd (**ubuntu**)
 - configure /etc/mpd.conf
+- add permissions rx for others (user mpd) in all of necessary folders
+- add permissions rx for others in /home/user if is necessary
 ```
 music_directory "/home/aleon/Música"
 playlist_directory "/home/aleon/playlists"
@@ -38,7 +41,7 @@ audio_output {
 - sudo systemctl enable mpd
 - sudo systemctl start mpd
 - sudo systemctl status mpd
-- check errors, files, directories and permissions
+- check errors, files, directories and folder permissions
 - reboot if is necessary
 
 ## MPC
@@ -83,7 +86,7 @@ INTRO    Play/Pause
 r     Random on/off 
 A            Àlbums (album objects = album folders)
 L     Load Playlist (load playlist to listen to)
-C    Crear Playlist (generate playlist by criteria)
+C    Crear Playlist (generate playlist from album objects by criteria)
 R             Reset (init and clear)
 0            Sortir (exit)
 ```
