@@ -73,3 +73,17 @@ author
 ## Run
 
 - python3 mpcpy_aleon.py
+
+```
+INTRO    Play/Pause
+>           Següent (next)
+<          Anterior (prev)
++[N]        + Volum
+-[N]        - Volum
+r     Random on/off 
+A            Àlbums (album objects = album folders)
+L     Load Playlist (load playlist to listen to)
+C    Crear Playlist (generate playlist by criteria)
+R             Reset (init and clear)
+0            Sortir (exit)
+```
