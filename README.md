@@ -13,25 +13,39 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per GNU Linux.
 https://www.musicpd.org/
 https://mpd.readthedocs.io/en/stable/user.html
 
-- apt install mpd
+- sudo pacman -S mpd (arch)
+- apt install mpd (ubuntu)
 - configure /etc/mpd.conf
 ```
 music_directory "/home/aleon/Música"
 playlist_directory "/home/aleon/playlists"
+user "mpd"
 auto_update "yes"
+audio_output {
+        type            "alsa"
+        name            "My ALSA Device"
+#       device          "hw:0,0"        # optional
+#       mixer_type      "hardware"      # optional
+#       mixer_device    "default"       # optional
+##      mixer_control   "PCM"           # optional
+##      mixer_index     "0"             # optional
+}
+#
 ...
 ```
 - load mp3 music in music_directory
 - sudo systemctl enable mpd
 - sudo systemctl start mpd
 - sudo systemctl status mpd
+- check errors, files, directories and permissions
 - reboot if is necessary
 
 ## MPC
 https://www.musicpd.org/clients/mpc/
 https://www.musicpd.org/doc/mpc/html/
 
-- apt install mpc
+- sudo pacman -S mpc (arch)
+- apt install mpc (ubuntu)
 - mpc update
 - mpc ls
 - mpd add /
