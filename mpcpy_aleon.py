@@ -32,8 +32,7 @@ import pickle
 
 #constants ______________________________________________
 AUTOR = "Aleon"
-#DIR_MUSIC = '/home/aleon/Music'
-DIR_MUSIC = '/home/aleon/Música'
+DIR_MUSIC = '/home/aleon/Music'
 DIR_PLAYLIST = '/home/aleon/playlists'
 FILE_INFO = 'info.txt'
 FILE_ALBUMS = 'albums'
@@ -181,7 +180,8 @@ def crea_album(base,files,ll):
 
         return album
 
-def guarda_pickle(fitxer):
+def guarda_pickle(fitxer, albums):
+    #print('guarda_pickle ', albums)
     outfile = open(fitxer,'wb')
     pickle.dump(albums, outfile)
     outfile.close()
@@ -242,7 +242,7 @@ def llegeix_playlist():
         ll = llegeix_fitxer(fitxer)[0][:-1]
     return ll
 
-def print_info():
+def print_info(albums):
     print(f"\nWINAMP v2021 by {AUTOR}")
     #print(f"Fitxer impo/expo  : {FITXER}")
     print(f"Àlbums: {len(albums)}")
@@ -277,19 +277,19 @@ def genera_menu(ll):
     else:
         print('\n* LLISTA BUIDA *\n')
 
-def llegeix_generes():
+def llegeix_generes(albums):
     return list(set([ v.genere for k,v in albums.items() ]))
 
-def llegeix_autors():
+def llegeix_autors(albums):
     return list(set([ v.autor for k,v in albums.items() ]))
 
-def llegeix_anys():
+def llegeix_anys(albums):
     return list(set([ v.any for k,v in albums.items() ]))
 
-def llegeix_cops():
+def llegeix_cops(albums):
     return list(set([ v.reproduccions for k,v in albums.items() ]))
 
-def llegeix_noms_albums():
+def llegeix_noms_albums(albums):
     return [ k for k in albums ]
 
 def reproduccions_album():
@@ -465,6 +465,10 @@ i té com a objectius:
 
 #init_dir(): Aquesta funció només serà cridada per la funció reset()
 def init_dir():
+
+    #init albums
+    albums = {}
+
     #recòrrer tots els directoris sota un path
     #print('bases _______________________________')
     for base, dirs, files in os.walk(DIR_MUSIC):
@@ -510,7 +514,9 @@ def init_dir():
     #print(albums)
 
     #Pickling files
-    guarda_pickle(FILE_ALBUMS)
+    guarda_pickle(FILE_ALBUMS, albums)
+
+    return albums
 
 """
 b) init(): Aquesta funció serà cridada cada cop que s’executi 
@@ -544,6 +550,8 @@ def init():
 
     #carrega estat
     load_estat(FILE_ESTAT)
+
+    #print('init() ', albums)
 
     return albums
 
@@ -585,7 +593,9 @@ def reset():
     os.system('mpc update')
 
     #init
-    init()
+    albums = init()
+    
+    return albums
 
 """
 d) sortir(): A l’hora d’aturar el nostre programa Python, aquesta funció ha de:
@@ -602,7 +612,7 @@ Per simplificar-ho, incrementarem aquest nombre d’un àlbum
     una llista de reproducció.
 """
 
-def sortir():
+def sortir(albums):
     #guardar estat_reproductor.txt
     #mpc status > estat_reproductor.txt
     bash = 'mpc status > ' + FILE_ESTAT
@@ -610,7 +620,7 @@ def sortir():
 
     #update fitxer albums
     #Pickling files
-    guarda_pickle(FILE_ALBUMS)
+    guarda_pickle(FILE_ALBUMS, albums)
 
     #mpc stop
     os.system('mpc stop')
@@ -632,17 +642,17 @@ if __name__ == "__main__":
     while op != '0':
         
         #ini llistes
-        generes = llegeix_generes()
-        autors = llegeix_autors()
-        anys = llegeix_anys()
+        generes = llegeix_generes(albums)
+        autors = llegeix_autors(albums)
+        anys = llegeix_anys(albums)
         anys.sort()
-        cops = llegeix_cops()
+        cops = llegeix_cops(albums)
         cops.sort()
         playlists = llegeix_playlists()
-        noms_albums = llegeix_noms_albums()
+        noms_albums = llegeix_noms_albums(albums)
         
         #print_albums(albums)
-        print_info()
+        print_info(albums)
         print_menu()
         op = input("opció: ")
         if op.upper() in MENU.keys() or op == '':
@@ -754,9 +764,10 @@ if __name__ == "__main__":
                                         if opb != '' and opb != '0':
                                             opb = crea_playlist(opb,'CERCA')
             elif op == 'R':
-                    reset()
+                    albums = reset()
+                    #print('return reset() ', albums)
             elif op == '0':
-                    sortir()
+                    sortir(albums)
         else:
             #opció vol +/- enter
             print(op)
