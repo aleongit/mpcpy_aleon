@@ -1,6 +1,6 @@
 # MPCPy
 
-Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per GNU Linux.
+Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per consola GNU Linux.
 Ús de classes, gestió de llistes de reproducció i fitxers.
 
 ## Requeriments
