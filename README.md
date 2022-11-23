@@ -101,5 +101,6 @@ Crear llista Reproducció
 3 -> Anys (years)
 4 -> Reproduccions (reproductions)
 5 -> Paraula (word)
+6 -> Àlbum (album)
 0 -> <<
 ```
