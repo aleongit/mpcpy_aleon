@@ -375,7 +375,7 @@ def nom_playlist(val):
 
 def crea_playlist(val,tipus):
     #ini
-    print(val,tipus)
+    #print(val,tipus)
     if tipus == 'ANY':            
         a1 = int(val[0:4])
         a2 = int(val[5:])
@@ -391,7 +391,7 @@ def crea_playlist(val,tipus):
 
     #recupera cançons objecte àlbum
     for k,v in albums.items():
-        print(k)
+        #print(k)
         if tipus == 'GEN':
             if val == v.genere:
                 ll += v.genera_m3u()
@@ -412,7 +412,6 @@ def crea_playlist(val,tipus):
             ll += v.genera_m3u_cerca(val)
             nom = 'cerca_' + val
         elif tipus == 'ALBUM':
-            print('tipus album!')
             if val == k:
                 print(val, k)
                 ll += v.genera_m3u()
@@ -427,7 +426,7 @@ def crea_playlist(val,tipus):
         #update mpc
         os.system('mpc update')
 
-        print('\n* PLAYLIST CREADA *')
+        print('\n* PLAYLIST %s CREADA *' %nom)
 
     else:
         print('\n* PLAYLIST BUIDA, NO CREADA *')
@@ -776,11 +775,16 @@ if __name__ == "__main__":
                                     opb = ''
                                     while opb != '0':
                                         print(noms_albums)
+                                        print('\nT -> * TOTS *', end='')
                                         genera_menu(noms_albums)
                                         opb = input("opció [<< 0] : ")
                                         if opb in [str(i) for i in range(1,len(noms_albums)+1)]:
                                             #print('* ok album *')
                                             opb = crea_playlist(noms_albums[int(opb)-1],'ALBUM')
+                                        elif opb.upper() == 'T':
+                                            #print('tots!')
+                                            for nom in noms_albums:
+                                                opb = crea_playlist(nom, 'ALBUM')
 
             elif op == 'R':
                     albums = reset()

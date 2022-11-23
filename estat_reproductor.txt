@@ -1,3 +1,3 @@
-Sinergia - SOS
-[paused]  #2/8   1:37/3:54 (41%)
-volume: 40%   repeat: off   random: on    single: off   consume: off
+Pirat's Sound Sistema - A Cada Somni
+[playing] #5/13   3:20/4:59 (66%)
+volume: 30%   repeat: off   random: on    single: off   consume: off
