@@ -12,6 +12,7 @@ import os
 from datetime import date
 import pickle
 import re
+import eyed3
 
 #https://www.codestudyblog.com/cnb2001/0123194106.html
 #os.system： gets the return value of the program execution command.
@@ -70,7 +71,8 @@ MENU_PLAYLIST = {'1':'Gènere',
                 '0':'<<'}
 
 MENU_EDITA = {
-    'i':'Editar info.txt',
+    'E':'Editar àlbum',
+    'I':'Info MP3',
     '-':'Eliminar cançons',
     '+':'Afegir cançons eliminades',
     '0':'<<'
@@ -705,10 +707,10 @@ if __name__ == "__main__":
                         opb = ''
                         while opb != '0':
                             menu_edita()
-                            opb = input("opció: ").lower()
+                            opb = input("opció: ").upper()
                             if opb in MENU_EDITA.keys() or opb == '':
                                 #editar info.txt d'album i carpeta
-                                if opb.upper() == 'I':
+                                if opb.upper() == 'E':
                                     ll = []
                                     #1
                                     opc = ''
@@ -748,18 +750,53 @@ if __name__ == "__main__":
                                     ll.append(opc)
                                     
                                     #update album
-                                    print(ll)
+                                    #print(ll)
                                     albums[key].update_info(ll)
                                     
                                     #update info.txt
                                     fitxer = albums[key].ruta + '/' + FILE_INFO                               
                                     if existeix_fitxer(fitxer):
                                         llfitxer = [el + '\n' for el in ll ]
-                                        print(llfitxer)
+                                        #print(llfitxer)
                                         guarda_fitxer(fitxer, llfitxer)
-  
+                                                                #eliminar
+                                #llistar i metadata mp3
+                                elif opb.upper() == 'I':
+                                    opc = ''
+                                    while opc != '0':
+                                        #llistar mp3
+                                        genera_menu(albums[key].mp3)
+                                        opc = input("Info MP3 NUM [<< 0] : ")
+                                        #if opc in [str(i) for i in range(1,len(albums[key].mp3)+1)]:
+                                        #    print(f"\n* Eliminada NUM {opc} *\n")
+                                        #    albums[key].borra_mp3(int(opc)-1)
+                                        path_mp3 = albums[key].ruta + '/' + albums[key].mp3[int(opc)-1]
+                                        print(path_mp3)
+                                        audiofile = eyed3.load(path_mp3)
+                                        
+                                        #https://eyed3.readthedocs.io/en/latest/eyed3.id3.html#module-eyed3.id3.tag
+                                        print(audiofile.tag)
+                                        print(audiofile.tag.genre)
+                                        print(audiofile.tag.getBestDate())
+                                        print(audiofile.tag.artist)
+                                        print(audiofile.tag.album_artist)
+                                        print(audiofile.tag.album)
+                                        print(audiofile.tag.title)
+                                        print(audiofile.tag.track_num)
+                                        print(audiofile.tag.bpm)
+                                        print(audiofile.tag.cd_id)
+                                        print(audiofile.tag.encoding_date)
+                                        print(audiofile.tag.best_release_date)
+                                        print(audiofile.tag.release_date)
+                                        print(audiofile.tag.original_release_date)
+                                        print(audiofile.tag.recording_date)
+                                        print(audiofile.tag.tagging_date)
+                                        print(audiofile.tag.disc_num)
+                                        print(audiofile.tag.copyright)
+                                        print(audiofile.tag.encoded_by)
+                                
                                 #eliminar
-                                if opb == '-':
+                                elif opb == '-':
                                     opc = ''
                                     while opc != '0':
                                         #llistar mp3

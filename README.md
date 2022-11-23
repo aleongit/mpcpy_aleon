@@ -73,9 +73,17 @@ year
 author
 ```
 
+## eyeD3
+https://eyed3.readthedocs.io/en/latest/
+https://eyed3.readthedocs.io/en/latest/eyed3.id3.html#module-eyed3.id3.tag
+
+- sudo pacman -S python-pip
+- pip install eyeD3
+
+
 ## Run
 
-- python3 mpcpy_aleon.py
+- python mpcpy_aleon.py
 
 - main
 ```
