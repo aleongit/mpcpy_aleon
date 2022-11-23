@@ -77,6 +77,7 @@ author
 
 - python3 mpcpy_aleon.py
 
+- main
 ```
 INTRO    Play/Pause
 >           Següent (next)
@@ -89,4 +90,16 @@ L     Load Playlist (load playlist to listen to)
 C    Crear Playlist (generate playlist from album objects by criteria)
 R             Reset (init and clear)
 0            Sortir (exit)
+```
+
+- create playlist
+```
+Crear llista Reproducció
+------------------------
+1 -> Gènere (gender)
+2 -> Autor (author)
+3 -> Anys (years)
+4 -> Reproduccions (reproductions)
+5 -> Paraula (word)
+0 -> <<
 ```
