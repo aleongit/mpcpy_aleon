@@ -59,6 +59,7 @@ MENU_PLAYLIST = {'1':'Gènere',
                 '3':'Anys',
                 '4':'Reproduccions',
                 '5':'Paraula',
+                '6':'Àlbum',
                 '0':'<<'}
 
 MENU_EDITA = {'-':'Eliminar',
@@ -374,7 +375,7 @@ def nom_playlist(val):
 
 def crea_playlist(val,tipus):
     #ini
-    #print(val,tipus)
+    print(val,tipus)
     if tipus == 'ANY':            
         a1 = int(val[0:4])
         a2 = int(val[5:])
@@ -390,6 +391,7 @@ def crea_playlist(val,tipus):
 
     #recupera cançons objecte àlbum
     for k,v in albums.items():
+        print(k)
         if tipus == 'GEN':
             if val == v.genere:
                 ll += v.genera_m3u()
@@ -408,7 +410,13 @@ def crea_playlist(val,tipus):
             nom = str(n1) + '_' + str(n2)
         elif tipus == 'CERCA':
             ll += v.genera_m3u_cerca(val)
-            nom = 'cerca_' + val 
+            nom = 'cerca_' + val
+        elif tipus == 'ALBUM':
+            print('tipus album!')
+            if val == k:
+                print(val, k)
+                ll += v.genera_m3u()
+            nom = nom_playlist(val)
 
     #print(ll)
     #si llista no buida, guardem fitxer m3u a carpeta playlist
@@ -763,6 +771,17 @@ if __name__ == "__main__":
                                         opb = input("Paraula [<< 0] : ")
                                         if opb != '' and opb != '0':
                                             opb = crea_playlist(opb,'CERCA')
+                                                        #crear playlist segons paraula
+                            elif opa == '6':
+                                    opb = ''
+                                    while opb != '0':
+                                        print(noms_albums)
+                                        genera_menu(noms_albums)
+                                        opb = input("opció [<< 0] : ")
+                                        if opb in [str(i) for i in range(1,len(noms_albums)+1)]:
+                                            #print('* ok album *')
+                                            opb = crea_playlist(noms_albums[int(opb)-1],'ALBUM')
+
             elif op == 'R':
                     albums = reset()
                     #print('return reset() ', albums)
