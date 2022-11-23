@@ -2,10 +2,16 @@
 
 #Aleix Leon
 
+#TODO: eyeD3  
+#eyeD3 is a Python tool for working with audio files, specifically MP3 files containing ID3 metadata 
+#https://stackoverflow.com/questions/8948/accessing-mp3-metadata-with-python
+#https://eyed3.readthedocs.io/en/latest/
+
 #imports ______________________________________________
 import os
 from datetime import date
 import pickle
+import re
 
 #https://www.codestudyblog.com/cnb2001/0123194106.html
 #os.system： gets the return value of the program execution command.
@@ -39,6 +45,7 @@ FILE_ALBUMS = 'albums'
 FILE_ESTAT = 'estat_reproductor.txt'
 FILE_LLISTES = 'playlists.txt'
 FILE_LLISTA = 'playlist.txt'
+INFO_TXT = ['Gènere', 'Any', 'Autor']
 INFO_DEF = ['Desconegut\n', str(date.today().year)+'\n', 'Desconegut\n']
 VOLUM = 30
 
@@ -62,9 +69,12 @@ MENU_PLAYLIST = {'1':'Gènere',
                 '6':'Àlbum',
                 '0':'<<'}
 
-MENU_EDITA = {'-':'Eliminar',
-              '+':'Afegir eliminades',
-              '0':'<<'}
+MENU_EDITA = {
+    'i':'Editar info.txt',
+    '-':'Eliminar cançons',
+    '+':'Afegir cançons eliminades',
+    '0':'<<'
+    }
 
 #classes objecte ______________________________________________
 #classe àlbum
@@ -109,6 +119,11 @@ Borrades: %s\n" %(self.genere, self.any,
         #print( mp3 in self.mp3)
         if mp3 in self.mp3:
             self.reproduccions += 1
+    
+    def update_info(self, ll):
+        self.genere = ll[0]
+        self.any = ll[1]
+        self.autor = ll[2]
 
     def borra_mp3(self,pos):
         self.borrades.append(self.mp3.pop(pos))
@@ -262,7 +277,7 @@ def menu_playlist():
 
 def menu_edita():
     #mètode print(" %s " %(variable))
-    print(f"\nEliminar/Afegir cançons\n------------------------")
+    print(f"\nEditar Àlbum\n------------------------")
     for k,v in MENU_EDITA.items():
         print("%s -> %s" %(k,v))
     print()
@@ -431,7 +446,7 @@ def crea_playlist(val,tipus):
     else:
         print('\n* PLAYLIST BUIDA, NO CREADA *')
 
-    input('tecla per continuar...')
+    #input('tecla per continuar...')
 
     return '0'
 
@@ -692,6 +707,57 @@ if __name__ == "__main__":
                             menu_edita()
                             opb = input("opció: ").lower()
                             if opb in MENU_EDITA.keys() or opb == '':
+                                #editar info.txt d'album i carpeta
+                                if opb.upper() == 'I':
+                                    ll = []
+                                    #1
+                                    opc = ''
+                                    while opc == '':
+                                        opc = input(f'Gènere [{albums[key].genere}]: ')
+                                        if opc == '':
+                                            #mantenim igual
+                                            opc = albums[key].genere
+                                        else:
+                                            #valida?
+                                            pass
+                                    ll.append(opc)
+                                    #2
+                                    opc = ''
+                                    while opc == '':
+                                        opc = input(f'Any [{albums[key].any}]: ')
+                                        if opc == '':
+                                            #mantenim igual
+                                            opc = albums[key].any
+                                        else:
+                                            #valida?
+                                            #print('regexp ', re.fullmatch('\d{4,4}', opc))
+                                            r = re.fullmatch('\d{4,4}', opc)
+                                            if not r:
+                                                opc = ''
+                                    ll.append(opc)
+                                    #3
+                                    opc = ''
+                                    while opc == '':
+                                        opc = input(f'Autor [{albums[key].autor}]: ')
+                                        if opc == '':
+                                            #mantenim igual
+                                            opc = albums[key].autor
+                                        else:
+                                            #valida?
+                                            pass
+                                    ll.append(opc)
+                                    
+                                    #update album
+                                    print(ll)
+                                    albums[key].update_info(ll)
+                                    
+                                    #update info.txt
+                                    fitxer = albums[key].ruta + '/' + FILE_INFO                               
+                                    if existeix_fitxer(fitxer):
+                                        llfitxer = [el + '\n' for el in ll ]
+                                        print(llfitxer)
+                                        guarda_fitxer(fitxer, llfitxer)
+  
                                 #eliminar
                                 if opb == '-':
                                     opc = ''
