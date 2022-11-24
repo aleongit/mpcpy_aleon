@@ -485,7 +485,10 @@ def get_metadades(fitxer):
     audiofile = eyed3.load(fitxer)
     ll.append(str(audiofile.tag.genre) + '\n')
     ll.append(str(audiofile.tag.getBestDate()) + '\n')
-    ll.append(str(audiofile.tag.album_artist) + '\n')
+    if audiofile.tag.album_artist == None:
+        ll.append(str(audiofile.tag.artist) + '\n')
+    else:
+        ll.append(str(audiofile.tag.album_artist) + '\n')
 
     return ll
 
