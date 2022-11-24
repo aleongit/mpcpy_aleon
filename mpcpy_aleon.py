@@ -9,7 +9,7 @@ import pickle
 import re
 import time
 
-#import eyed3
+import eyed3
 from eyed3 import id3
 from eyed3 import load
 
@@ -476,6 +476,19 @@ def load_playlist(playlist):
 
     return '0'
 
+def get_metadades(fitxer):
+    
+    #gènere / any / autor
+    ll = []
+    
+    # eyed3
+    audiofile = eyed3.load(fitxer)
+    ll.append(str(audiofile.tag.genre) + '\n')
+    ll.append(str(audiofile.tag.getBestDate()) + '\n')
+    ll.append(str(audiofile.tag.album_artist) + '\n')
+
+    return ll
+
 """
 a) init_dir(): Aquesta funció només serà cridada per la funció reset() 
 i té com a objectius:
@@ -519,9 +532,22 @@ def init_dir():
             #print( existeix_fitxer(fitxer) )
             
             #si no hi és, crea fitxer per defecte
+            #crear info.txt obtenim metadades del 1r track
+            #print(files[0])
+            
+            #1r mp3 carpeta
+            fitxer_mp3 = base + '/' + files[0]
+            #print(fitxer_mp3)
+
+            try:
+                info_album = get_metadades(fitxer_mp3)
+            except:
+                info_album = INFO_DEF
+            #print(info_album)
+
             if not existeix_fitxer(fitxer):
-                print('* FATAL ERROR* no hi ha ' + fitxer)
-                guarda_fitxer(fitxer,INFO_DEF)
+                #print('* FATAL ERROR* no hi ha ' + fitxer)
+                guarda_fitxer(fitxer, info_album)
                 #print( llegeix_fitxer(fitxer) )
 
             #contingut fitxer info.txt
