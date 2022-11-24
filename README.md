@@ -1,7 +1,7 @@
 # MPCPy
 
 Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per consola GNU Linux.
-Ús de classes, gestió de llistes de reproducció i fitxers.
+Ús de classes, gestió de llistes de reproducció, fitxers i metadades ID3.
 
 ## Requeriments
 
@@ -9,6 +9,7 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per consola GNU Linu
 - python >= 3.8
 - MPD: Music Player Daemon 0.23.5 (0.23.5)
 - MPC: A minimalist command line interface to MPD / mpc version: 0.34
+- eyeD3: Python tool for working with audio files, specifically MP3 files containing ID3 metadata
 
 ## MPD
 https://www.musicpd.org/
