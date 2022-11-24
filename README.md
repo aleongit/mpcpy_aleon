@@ -138,6 +138,7 @@ I -> Info MP3
 ```
 /home/aleon/Music/Pirat's Sound Sistema/Sants Sistema/1-11 A Cada Somni.mp3
 # =============================================================================
+
 Track Name:     A Cada Somni
 Track Artist:   Pirat's Sound Sistema
 Track Album:    Sants Sistema
@@ -148,6 +149,7 @@ Track BitRate:  128 kb/s
 Sample Rate:    44100
 Mode:           Stereo
 # =============================================================================
+
 Album Artist:         Pirat's Sound Sistema
 Album Year:           2006
 Album Recording Date: 2006
@@ -155,6 +157,7 @@ Album Type:           None
 Disc Num:             CountAndTotalTuple(count=1, total=None)
 Artist Origin:        None
 # =============================================================================
+
 Artist URL:         None
 Audio File URL:     None
 Audio Source URL:   None
@@ -164,6 +167,7 @@ Internet Radio URL: None
 Publisher URL:      None
 Payment URL:        None
 # =============================================================================
+
 Publisher: PROPAGANDA PEL FET!
 Original Release Date: None
 Play Count: None
@@ -177,10 +181,32 @@ Cd Id: None
 Composer: None
 Encoding date: None
 # =============================================================================
+
 Genre: Reggae
 Non Std Genre Name: Reggae
 Genre ID: 16
 Non Std Genre ID: 16
 LAME Tag:       {}
+# =============================================================================
+
+Header Version: (2, 3, 0)
+Header Major Version: 2
+Header Minor Version: 3
+Header Rev Version: 0
+Header Extended: False
+Header Footer: False
+Header Experimental: False
+Header SIZE: 10
+Header Tag Size: 244530
+Extended Header Size: 0
+# =============================================================================
+
+File Name: /home/aleon/Music/Pirat's Sound Sistema/Sants Sistema/1-11 A Cada Somni.mp3
+File Tag Size: 244540
+File Tag Padding Size: 4096
+File Read Only: False
+File Size: 5031425
+Last Modified: 2021-08-16 15:30:36
+Last Accessed: 2022-11-23 17:38:42
 # =============================================================================
 ```
