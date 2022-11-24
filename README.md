@@ -113,3 +113,74 @@ Crear llista Reproducció
 6 -> Àlbum (album)
 0 -> <<
 ```
+
+- albums
+```
+Sants Sistema
+Gènere: Reggae
+Any: 2006
+Autor: Pirat's Sound Sistema
+Reproduccions: 0
+Ruta: /home/aleon/Music/Pirat's Sound Sistema/Sants Sistema
+Cançons: 13
+Borrades: []
+
+Editar Àlbum
+------------------------
+E -> Editar àlbum
+I -> Info MP3
+- -> Eliminar cançons
++ -> Afegir cançons eliminades
+0 -> <<
+```
+
+- info mp3
+```
+/home/aleon/Music/Pirat's Sound Sistema/Sants Sistema/1-11 A Cada Somni.mp3
+# =============================================================================
+Track Name:     A Cada Somni
+Track Artist:   Pirat's Sound Sistema
+Track Album:    Sants Sistema
+Track Duration: 0:00:04:59
+Track Number:   CountAndTotalTuple(count=11, total=None)
+Track BitRate:  (False, 128)
+Track BitRate:  128 kb/s
+Sample Rate:    44100
+Mode:           Stereo
+# =============================================================================
+Album Artist:         Pirat's Sound Sistema
+Album Year:           2006
+Album Recording Date: 2006
+Album Type:           None
+Disc Num:             CountAndTotalTuple(count=1, total=None)
+Artist Origin:        None
+# =============================================================================
+Artist URL:         None
+Audio File URL:     None
+Audio Source URL:   None
+Commercial URL:     None
+Copyright URL:      None
+Internet Radio URL: None
+Publisher URL:      None
+Payment URL:        None
+# =============================================================================
+Publisher: PROPAGANDA PEL FET!
+Original Release Date: None
+Play Count: None
+Tagging Date: None
+Release Date: None
+Terms Of Use: None
+isV1: False
+isV2: True
+BPM: 92
+Cd Id: None
+Composer: None
+Encoding date: None
+# =============================================================================
+Genre: Reggae
+Non Std Genre Name: Reggae
+Genre ID: 16
+Non Std Genre ID: 16
+LAME Tag:       {}
+# =============================================================================
+```
