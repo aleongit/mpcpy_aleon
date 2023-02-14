@@ -12,8 +12,8 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per consola GNU Linu
 - eyeD3: Python tool for working with audio files, specifically MP3 files containing ID3 metadata
 
 ## MPD
-https://www.musicpd.org/
-https://mpd.readthedocs.io/en/stable/user.html
+- https://www.musicpd.org/
+- https://mpd.readthedocs.io/en/stable/user.html
 
 - sudo pacman -S mpd (**arch**)
 - apt install mpd (**ubuntu**)
@@ -46,8 +46,8 @@ audio_output {
 - reboot if is necessary
 
 ## MPC
-https://www.musicpd.org/clients/mpc/
-https://www.musicpd.org/doc/mpc/html/
+- https://www.musicpd.org/clients/mpc/
+- https://www.musicpd.org/doc/mpc/html/
 
 - sudo pacman -S mpc (**arch**)
 - apt install mpc (**ubuntu**)
@@ -75,8 +75,8 @@ author
 ```
 
 ## eyeD3
-https://eyed3.readthedocs.io/en/latest/
-https://eyed3.readthedocs.io/en/latest/eyed3.id3.html#module-eyed3.id3.tag
+- https://eyed3.readthedocs.io/en/latest/
+- https://eyed3.readthedocs.io/en/latest/eyed3.id3.html#module-eyed3.id3.tag
 
 - sudo pacman -S python-pip
 - pip install eyeD3
