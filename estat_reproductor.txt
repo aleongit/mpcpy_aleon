@@ -1,3 +1,3 @@
-Pirat's Sound Sistema - A Cada Somni
-[playing] #5/13   3:20/4:59 (66%)
-volume: 30%   repeat: off   random: on    single: off   consume: off
+Pirat's Sound Sistema - Només et mouen els diners
+[playing] #2/10   1:47/3:34 (50%)
+volume: 32%   repeat: off   random: off   single: off   consume: off
