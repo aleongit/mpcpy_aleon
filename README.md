@@ -17,7 +17,7 @@ Exemple d'un reproductor MP3 amb Python basat amb MPD i MPC per consola GNU Linu
 ## setup environment: pyenv and venv
 - https://github.com/pyenv/pyenv
 - https://github.com/pyenv/pyenv?tab=readme-ov-file#linuxunix
-- install pyenv for Arch
+- install **pyenv** for Arch
 ```
 curl -fsSL https://pyenv.run | bash
 ```
@@ -49,16 +49,12 @@ pyenv versions
 ```
 pyenv install 3.10.4
 ```
-- running `pyenv install -l` gives the list of all available versions
-- go to the project
+- go to the folder project and set the local Python version
 ```
 cd /home/aleon/mpcpy_aleon/
-```
-- set the local Python version for the folder
-```
 pyenv local 3.10.4
 ```
-- create the virtual environment
+- create the virtual environment **venv**
 ```
 python -m venv .venv
 ```
