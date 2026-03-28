@@ -1,3 +1,0 @@
-Pirat's Sound Sistema - Bombes
-[playing] #1/13   0:08/3:54 (3%)
-volume: 50%   repeat: off   random: off   single: off   consume: off
