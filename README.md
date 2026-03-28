@@ -49,7 +49,7 @@ pyenv versions
 ```
 pyenv install 3.10.4
 ```
-- go to the folder project and set the local Python version
+- go to the project folder and set the local Python version
 ```
 cd /home/aleon/mpcpy_aleon/
 pyenv local 3.10.4
