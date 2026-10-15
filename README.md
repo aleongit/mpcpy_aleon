@@ -80,7 +80,7 @@ pip install eyed3
 - install on **arch**
 ```sudo pacman -S mpd```
 - or **ubuntu**
-```apt install mpd (**ubuntu**)```
+```apt install mpd```
 - configure /etc/mpd.conf
 - add permissions rx for others (user mpd) in all of necessary folders
 - add permissions rx for others in /home/user if is necessary
