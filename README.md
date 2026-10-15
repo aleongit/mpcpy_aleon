@@ -25,7 +25,7 @@ curl -fsSL https://pyenv.run | bash
 ```
 pacman -S --needed base-devel openssl zlib xz tk zstd
 ```
-. edit `.bashrc`
+- edit `.bashrc`
 ```
 nano ~/.bashrc
 ```
@@ -77,8 +77,10 @@ pip install eyed3
 - https://www.musicpd.org/
 - https://mpd.readthedocs.io/en/stable/user.html
 
-- sudo pacman -S mpd (**arch**)
-- apt install mpd (**ubuntu**)
+- install on **arch**
+```sudo pacman -S mpd```
+- or **ubuntu**
+```apt install mpd (**ubuntu**)```
 - configure /etc/mpd.conf
 - add permissions rx for others (user mpd) in all of necessary folders
 - add permissions rx for others in /home/user if is necessary
